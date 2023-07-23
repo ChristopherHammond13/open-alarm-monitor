@@ -64,9 +64,6 @@ class AlarmMessageHandler(socketserver.BaseRequestHandler):
 
         self.request.send(b'[P]\x00' + bytes([account.polling_interval]) + b'\x06\r\n')
 
-        # Record poll event
-        self.server.account_manager.polled(account)
-
         ac_failure = (flags & self.FLAG_AC_FAILURE) > 0
         armed = (flags & self.FLAG_ARMED) > 0
         battery_failure = (flags & self.FLAG_BATTERY_FAILURE) > 0
