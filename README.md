@@ -5,17 +5,29 @@ This is effectively a reimplemnentation of much of the [excellent work done by @
 
 Texecom supports two protocols: ContactID and SIA. This application should support both.
 
+## WARNING
+
+This code is in alpha status, and personally solves some use cases for me. This means it may work for you, may not work for you or, worse, may lead you into a false sense of security such that you believe it is working better than it is. I take no responsibility for any losses resulting from this code failing to alert you to an intruder, or failing to meet any other use case you apply it to.
+
+I encourage you to read the code, hack on it, improve it, and let me know if it works for you!
+
+## Texecom NDA
+
+Some people choose to sign an NDA with Texecom in order to get access to internal documentation; however, I have chosen not to enter into such an agreement deliberately to ensure that this code can be shared with the community, unencumbered. Note that I have ***not*** signed any such agreement with Texecom, and I am therefore not bound by any of those terms as they pertain to limitations on sharing integrations with Texecom alarms. All the work done in this project is either original (based on reverse engineering), or based on code and reference data available via the Internet (open source). Note further that the Contact ID and SIA specifications are public and cross-vendor.
+
 ## Get Started
 
 Copy `config.example.toml` to `config.toml` and fill in the gaps. Then, run `alarm_monitor listen` to get the server online.
 
 ## Message Structures
 
-### ContactID
+This code technically supports two types of messages: Contact ID and SIA. However, only Contact ID is confirmed working at this point.
+
+### Contact ID
 
 *Note that this documentation is based on this document: https://www.voip-sip-sdk.com/attachments/583/contact_id.pdf*
 
-ContactID messages are 16 bytes in length, and there are four possible structures (that are all quite similar).
+Contact ID messages are 16 bytes in length, and there are four possible structures (that are all quite similar).
 
 All messages start with some common data, namely the four digit account number; the two digit Contact ID code (18); and a four digit event qualifier (contextual). All events also end in a single byte (0 - F) checksum.
 
