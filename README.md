@@ -13,7 +13,15 @@ I encourage you to read the code, hack on it, improve it, and let me know if it 
 
 ## Texecom NDA
 
-Some people choose to sign an NDA with Texecom in order to get access to internal documentation; however, I have chosen not to enter into such an agreement deliberately to ensure that this code can be shared with the community, unencumbered. Note that I have ***not*** signed any such agreement with Texecom, and I am therefore not bound by any of those terms as they pertain to limitations on sharing integrations with Texecom alarms. All the work done in this project is either original (based on reverse engineering), or based on code and reference data available via the Internet (open source). Note further that the Contact ID and SIA specifications are public and cross-vendor.
+Some people choose to sign an NDA with Texecom in order to get access to internal documentation; however, I have chosen ***not*** to enter into any such agreement deliberately to ensure that this code can be shared with the community, unencumbered. All the work published in this project is either original (based on reverse engineering), or based on code and reference data available via the Internet (open source). Note further that the Contact ID and SIA specifications are public and cross-vendor.
+
+The code is published under the MIT licence to encourage its adoption and adaptation as the community sees fit.
+
+## Why did I build this?
+
+I wanted my alarm to be able to call me like the 'old days' of traditional diallers. Texecom has several APIs that I have interfaced with in some capacity (including the Wintex one), but implementing an ARC allows you to take advantage of the alarm's native capability to send a message to a server, with retry support, in the event of a major event (such as an alarm state). Eventually, I intend to install a Texecom Premier Elite alarm into my grandmother's home when her POTS phone line is removed as part of her full fibre migration, so that she can take advantage of dialler-like functionality; calling a phone when there is an alarm is much more user-friendly for the elderly than the Texecom Connect app, even without an Openreach / POTS phone line available.
+
+If anybody from Texecom is reading this, the code exists so that I can buy another alarm from you despite owning one myself! Please don't be mad :) Diallers were great, and are a great alternative when one does not wish to pay for a professional ARC/Monitoring service (some of whom charge a fortune and try to convince the elderly they need to spend a lot more on service contracts than they do). There is often no better way to get somebody's attention than just calling their phone.
 
 ## Get Started
 
@@ -101,3 +109,7 @@ UUU  = The User number, e.g., 003
 Example:
 1234 18 3401 03 005 F
 ```
+
+### SIA
+
+TODO: document this protocol
