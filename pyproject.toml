@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "open-alarm-monitor"
+version = "0.1.0"
+description = "Implementation of Contact ID and SIA"
+authors = [
+    "Christopher Hammond <christopherhammond13@gmail.com>"
+]
+readme = "README.md"
+packages = [{include = "open_alarm_monitor"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+hexdump = "^3.3"
+click = "^8.1.6"
+tomli = "^2.0.1"
+twilio = "^8.5.0"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+
+[tool.poetry.scripts]
+alarm_monitor = "open_alarm_monitor.app:cli"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

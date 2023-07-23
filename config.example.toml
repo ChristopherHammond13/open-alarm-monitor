@@ -1,0 +1,22 @@
+[open_alarm_monitor.listen]
+address = "0.0.0.0"
+port = "45000"
+
+[open_alarm_monitor.accounts.Example]
+account_number = 1001
+name = "Example"
+address = "123 Fake St, London, FAK3 ZIP"
+protocol = "contact_id"
+polling_interval = 2
+message_handlers = ["shell_exec_1", "twilio_voice_1"]
+
+[open_alarm_monitor.message_handlers.shell_exec_1]
+handler_type = "shell_exec"
+command = "./shell_exec_message.sh"
+
+[open_alarm_monitor.message_handlers.twilio_voice_1]
+handler_type = "twilio_voice"
+account_sid = "ACYourAccountSIDHere"
+auth_token = "authtokenhere"
+account_phone_number = "+441234567890"  # An outbound phone number in Twilio
+target_phone_number = "+11234567890"  # The recipient's phone number

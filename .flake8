@@ -1,0 +1,6 @@
+[flake8]
+max-line-length = 100
+
+# We disable the long line error (E501) in files with long constants
+per-file-ignores = 
+    open_alarm_monitor/protocols/sia.py:E501
