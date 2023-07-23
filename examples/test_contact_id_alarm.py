@@ -12,15 +12,14 @@ with open('config.toml', 'rb') as f:
 
 listen_data = config['open_alarm_monitor']['listen']
 conn_details = ("localhost", int(listen_data['port']))
+# conn_details = (listen_data['address'], int(listen_data['port']))
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(conn_details)
 s.settimeout(2)
 
 # Testing with account number 1001
-# msg = b'\x01\x00\x00\x01\x01\x08\x01\x01\x03\x01\x00\x01\x00\x01\x01'
-msg = b'21001181131011015\r\n'
-# msg = bytearray([2, 1, 0, 0, 1, 1, 8, 1, 1, 0, 3, 1, 0, 1, 0, 1, 1, 5, ord(b'\r'), ord(b'\n')])
-# msg = b
+# We also prefix the message with a 2 to designate that this is a Texecom event
+msg = b'2100118113101101'
 
 
 def checksum(msg) -> int:
@@ -59,10 +58,8 @@ def checksum(msg) -> int:
     return checksum_str
 
 
-# msg += checksum(msg).to_bytes(length=1, byteorder='big') + b'\r\n'
-# print(msg)
-# s.send(msg)
-# msg += b'\r\n'
+msg += checksum(msg[1:]) + b'\r\n'
+
 print(msg)
 s.send(msg)
 s.close()
