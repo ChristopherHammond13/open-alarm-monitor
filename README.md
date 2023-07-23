@@ -11,6 +11,8 @@ This code is in alpha status, and personally solves some use cases for me. This 
 
 I encourage you to read the code, hack on it, improve it, and let me know if it works for you!
 
+Oh, and since we are dealing with standards published almost 25 years ago, it should go without saying that 'basic' security measures that modern protocols have (like encryption, passwords, etc.) do not exist here. **This code should not be considered secure, and should be run on an offline network where possible. If you must host this outside of your home, employ at very least IP address allow-listing.** Note further that this code allows you to shell execute a script on receipt of an alarm message, so ensure you have guardrails in place there. I recommend against using the shell execution handler, and instead implementing your own and opening a PR against this project to notify the resident to an alarm in some other way.
+
 ## Texecom NDA
 
 Some people choose to sign an NDA with Texecom in order to get access to internal documentation; however, I have chosen ***not*** to enter into any such agreement deliberately to ensure that this code can be shared with the community, unencumbered. All the work published in this project is either original (based on reverse engineering), or based on code and reference data available via the Internet (open source). Note further that the Contact ID and SIA specifications are public and cross-vendor.
