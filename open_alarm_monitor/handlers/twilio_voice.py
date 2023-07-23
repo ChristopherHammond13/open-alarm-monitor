@@ -31,6 +31,10 @@ class TwilioVoiceMessageHandler(MessageHandler):
             k, v = part.split('=')
             message_dict[k] = v
 
+        if 'event' not in message_dict:
+            print("We will not send a notification via Twilio because the event field was missing.")
+            return
+
         if 'Activate' not in message_dict['event']:
             # The alarm did not go off
             return
